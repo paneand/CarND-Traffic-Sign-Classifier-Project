@@ -78,18 +78,15 @@ the traffic signs
 | Fully connected                                                | 120      |         |        | 0.9     | 84       |
 | Fully connected                                                | 84       |         |        | 0.9     | 43       |
 
- After several experiments the following training hyperparameters were used  
- to train the model:
+   After several experiments the following training hyperparameters were used  
+   to train the model:
  
     Epochs: 60  
     Loss function optimizer: AdamOptimizer  
     Batch size: 100  
     Learning rate: 0.001
  
- No early termination mechanism was used during training to prevent  
- overfitting, as dropout was implemented. Since LeNet was designed to  
- recognize characters, this model worked well without re-engineering it too  
- much given the task similarities.
+   No early termination mechanism was used during training to prevent overfitting, as dropout was implemented.Since LeNet was designed      to recognize characters, this model worked well without re-engineering it too much given the task similarities
 -   Make predictions of the new images using the model, i.e. 5 images of german
     traffic signs found on the web (stored in `./web_signs/`) were used to test
     the model against “out in the wild” images
