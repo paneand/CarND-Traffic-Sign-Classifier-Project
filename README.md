@@ -80,10 +80,12 @@ the traffic signs
 
  After several experiments the following training hyperparameters were used  
  to train the model:
+ 
     Epochs: 60  
     Loss function optimizer: AdamOptimizer  
     Batch size: 100  
     Learning rate: 0.001
+ 
  No early termination mechanism was used during training to prevent  
  overfitting, as dropout was implemented. Since LeNet was designed to  
  recognize characters, this model worked well without re-engineering it too  
