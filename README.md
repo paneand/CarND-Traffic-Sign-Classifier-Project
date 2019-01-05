@@ -26,15 +26,15 @@ dependencies need to be installed.
 contains the starter kit needed for this purpose. During the development
 [Anaconda platform](https://www.anaconda.com/) was used.
 
-Implementation and model architecture design 
----------------------------------------------
+Implementation and model architecture design
+--------------------------------------------
 
 The pipeline for this project, found in the Jupyter notebook
 [Traffic_Sign_Classifier.ipynb](Traffic_Sign_Classifier.ipynb) has been:
 
-1.  Load the data set
+-   Load the data set
 
-2.  Explore, summarize and visualize the data set. Validation set size training
+-   Explore, summarize and visualize the data set. Validation set size training
     set size ratio is around 13%.
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,7 +52,7 @@ sign is not constant: some of them are really frequent, others not. This results
 in a an expected error distribution when predicting that is not constant between
 the traffic signs
 
-1.  Pre process the data:
+-   Pre process the data:
 
     1.  Shuffle all the sets (this is needed to ensure a proper convergence to
         the minimum of the loss function)
@@ -63,42 +63,40 @@ the traffic signs
     Grayscale transformation was not applied since color information is a
     relevant feature concerning traffic signs
 
-2.  Train and test a model architecture:
+-   Train and test a model architecture:
 
     The LeNet architecture was the starting model used for this project:
 
-| Layer Type                                                      | Input    | Padding | Stride | Dropout | Output   |
-|-----------------------------------------------------------------|----------|---------|--------|---------|----------|
-| Convolution 5x5 for each image channel, 6 times (i.e. 5x5x3x6)  | 32x32x3  | VALID   | 1      | 0.9     | 28x28x6  |
-| Max pooling 2x2                                                 | 28x28x6  | VALID   | 2      | /       | 14x14x6  |
-| Convolution 5x5 for each channel, 16 times (i.e. 14x14x6x16)    | 14x14x6  | VALID   | 1      | 0.9     | 10x10x16 |
-| Max pooling 2x2                                                 | 10x10x16 | VALID   | 2      | /       | 5x5x16   |
-| Flatten                                                         | 5x5x16   | /       | /      | /       | 400      |
-| Fully connected                                                 | 400      |         |        | 0.9     | 120      |
-| Fully connected                                                 | 120      |         |        | 0.9     | 84       |
-| Fully connected                                                 | 84       |         |        | 0.9     | 43       |
+| Layer Type                                                     | Input    | Padding | Stride | Dropout | Output   |
+|----------------------------------------------------------------|----------|---------|--------|---------|----------|
+| Convolution 5x5 for each image channel, 6 times (i.e. 5x5x3x6) | 32x32x3  | VALID   | 1      | 0.9     | 28x28x6  |
+| Max pooling 2x2                                                | 28x28x6  | VALID   | 2      | /       | 14x14x6  |
+| Convolution 5x5 for each channel, 16 times (i.e. 14x14x6x16)   | 14x14x6  | VALID   | 1      | 0.9     | 10x10x16 |
+| Max pooling 2x2                                                | 10x10x16 | VALID   | 2      | /       | 5x5x16   |
+| Flatten                                                        | 5x5x16   | /       | /      | /       | 400      |
+| Fully connected                                                | 400      |         |        | 0.9     | 120      |
+| Fully connected                                                | 120      |         |        | 0.9     | 84       |
+| Fully connected                                                | 84       |         |        | 0.9     | 43       |
 
-    After several experiments the following training hyperparameters were used
-    to train the model:
+    After several experiments the following training hyperparameters were used  
+    to train the model:  
+      
+    Epochs: 60  
+    Loss function optimizer: AdamOptimizer  
+    Batch size: 100  
+    Learning rate: 0.001  
+    
 
-    Epochs: 60
-
-    Loss function optimizer: AdamOptimizer
-
-    Batch size: 100
-
-    Learning rate: 0.001
-
-    No early termination mechanism was used during training to prevent
-    overfitting, as dropout was implemented. Since LeNet was designed to
-    recognize characters, this model worked well without re-engineering it too
+    No early termination mechanism was used during training to prevent  
+    overfitting, as dropout was implemented. Since LeNet was designed to  
+    recognize characters, this model worked well without re-engineering it too  
     much given the task similarities.
 
-3.  Make predictions of the new images using the model, i.e. 5 images of german
+-   Make predictions of the new images using the model, i.e. 5 images of german
     traffic signs found on the web (stored in `./web_signs/`) were used to test
     the model against “out in the wild” images
 
-4.  Analyze the softmax probabilities of the new images
+-   Analyze the softmax probabilities of the new images
 
  
 
